@@ -23,7 +23,13 @@ docs/UI_GUIDELINES.md
 
 Pliki w `dist/` oraz klasy w `packages/flutter/` są dystrybucyjnymi odpowiednikami tych wartości. Zmiana wspólnego koloru, odstępu, promienia lub brandingu powinna rozpoczynać się w tym repozytorium.
 
-Pierwsza wersja została odtworzona z aplikacji Flutter, głównie z `app_colors.dart`, `app_theme.dart` oraz ekranów używających wspólnych wymiarów. Od wydania `v0.2.0` to repozytorium jest nadrzędnym źródłem wspólnych zasad UI.
+Pierwsza wersja została odtworzona z aplikacji Flutter, głównie z `app_colors.dart`, `app_theme.dart` oraz ekranów używających wspólnych wymiarów. Od wersji `0.2.0` to repozytorium jest nadrzędnym źródłem wspólnych zasad UI.
+
+Aktualny niezmienny punkt wydania `0.2.0`:
+
+```text
+e28d643a2cc10eb2e47f55f82e8252485674ec2f
+```
 
 ## Struktura
 
@@ -39,12 +45,12 @@ scripts/                   walidacja spójności
 
 ## Webowa gra
 
-Zależność Git:
+Zależność Git przypięta do pełnego SHA:
 
 ```json
 {
   "dependencies": {
-    "@pawelwielga/panstwa-miasta-design": "github:PawelWielga/panstwa-miasta-design#v0.2.0"
+    "@pawelwielga/panstwa-miasta-design": "github:PawelWielga/panstwa-miasta-design#e28d643a2cc10eb2e47f55f82e8252485674ec2f"
   }
 }
 ```
@@ -63,7 +69,7 @@ import { colors, dimensions } from "@pawelwielga/panstwa-miasta-design/tokens";
 
 ## Statyczny landing page
 
-Landing page bez procesu npm powinien przechowywać lokalną kopię `dist/tokens.css`, przypiętą do konkretnego tagu. Nie należy pobierać tokenów z brancha `main` podczas działania strony.
+Landing page bez procesu npm powinien przechowywać lokalną kopię `dist/tokens.css`, przypiętą w metadanych do konkretnego tagu lub pełnego SHA. Nie należy pobierać tokenów z brancha `main` podczas działania strony.
 
 Przykładowa kolejność arkuszy:
 
@@ -90,7 +96,7 @@ dependencies:
   panstwa_miasta_design:
     git:
       url: https://github.com/PawelWielga/panstwa-miasta-design.git
-      ref: v0.2.0
+      ref: e28d643a2cc10eb2e47f55f82e8252485674ec2f
       path: packages/flutter
 ```
 
