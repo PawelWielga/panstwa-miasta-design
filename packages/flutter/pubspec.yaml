@@ -1,13 +1,13 @@
 name: panstwa_miasta_design
 description: Shared design tokens and Flutter theme for the Panstwa Miasta game.
-version: 0.1.0
+version: 0.2.0
 publish_to: none
 
 repository: https://github.com/PawelWielga/panstwa-miasta-design
 
 environment:
-  sdk: '>=3.3.0 <4.0.0'
-  flutter: '>=3.22.0'
+  sdk: '>=3.8.0 <4.0.0'
+  flutter: '>=3.32.0'
 
 dependencies:
   flutter:
