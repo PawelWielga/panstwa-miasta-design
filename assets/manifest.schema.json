@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/PawelWielga/panstwa-miasta-design/assets/manifest.schema.json",
+  "title": "Państwa Miasta shared asset manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "branding", "platformOwned"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "branding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["logoMark", "favicon", "socialImage"],
+      "properties": {
+        "logoMark": { "type": "string" },
+        "favicon": { "type": "string" },
+        "socialImage": { "type": "string" }
+      }
+    },
+    "platformOwned": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    }
+  }
+}

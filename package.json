@@ -1,7 +1,7 @@
 {
   "name": "@pawelwielga/panstwa-miasta-design",
-  "version": "0.1.0",
-  "description": "Shared design tokens for the Panstwa Miasta game.",
+  "version": "0.2.0",
+  "description": "Shared design tokens and brand assets for the Panstwa Miasta game.",
   "private": true,
   "type": "module",
   "files": [
@@ -16,10 +16,13 @@
     "./tokens": {
       "types": "./dist/tokens.d.ts",
       "default": "./dist/tokens.js"
-    }
+    },
+    "./assets/manifest.json": "./assets/manifest.json",
+    "./assets/*": "./assets/*"
   },
   "scripts": {
-    "test": "node scripts/validate.mjs"
+    "validate": "node scripts/validate.mjs",
+    "test": "npm run validate && npm pack --dry-run"
   },
   "engines": {
     "node": ">=20"

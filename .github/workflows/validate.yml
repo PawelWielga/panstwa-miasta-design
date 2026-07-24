@@ -5,7 +5,10 @@ on:
   push:
     branches:
       - main
-      - chore/bootstrap-design-system
+      - 'feature/**'
+      - 'feat/**'
+      - 'fix/**'
+      - 'chore/**'
 
 permissions:
   contents: read
@@ -20,14 +23,33 @@ jobs:
           node-version: 22
       - run: npm test
 
-  flutter-package:
+  flutter-minimum:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.0'
+          channel: stable
+          cache: true
+      - run: flutter pub get
+        working-directory: packages/flutter
+      - run: flutter analyze
+        working-directory: packages/flutter
+      - run: flutter test
+        working-directory: packages/flutter
+
+  flutter-stable:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
+          cache: true
       - run: flutter pub get
         working-directory: packages/flutter
       - run: flutter analyze
+        working-directory: packages/flutter
+      - run: flutter test
         working-directory: packages/flutter
