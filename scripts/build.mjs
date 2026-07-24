@@ -52,7 +52,7 @@ const numberFromDimension = (value) => {
   return Number(match[1]);
 };
 
-const dartColor = (value) => value.replace('#', '0xFF').toUpperCase();
+const dartColor = (value) => `0xFF${value.slice(1).toUpperCase()}`;
 const cssFontFamily = typography.fontFamily.replace('Segoe UI', '"Segoe UI"');
 
 const cssLines = [
