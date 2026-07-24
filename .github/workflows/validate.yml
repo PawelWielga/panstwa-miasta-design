@@ -1,0 +1,33 @@
+name: Validate design system
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - chore/bootstrap-design-system
+
+permissions:
+  contents: read
+
+jobs:
+  web-tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm test
+
+  flutter-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: flutter pub get
+        working-directory: packages/flutter
+      - run: flutter analyze
+        working-directory: packages/flutter
