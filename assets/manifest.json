@@ -1,0 +1,15 @@
+{
+  "$schema": "./manifest.schema.json",
+  "version": "0.2.0",
+  "branding": {
+    "logoMark": "branding/logo-mark.svg",
+    "favicon": "branding/favicon.svg",
+    "socialImage": "branding/og-image.svg"
+  },
+  "platformOwned": {
+    "flutterAppIcon": "PawelWielga/panstwa-miasta:assets/branding/app_icon.png",
+    "flutterAppIconFull": "PawelWielga/panstwa-miasta:assets/branding/app_icon_full.png",
+    "flutterBanner": "PawelWielga/panstwa-miasta:assets/branding/banner_1.png",
+    "soundEffects": "PawelWielga/panstwa-miasta:assets/audio/sfx/"
+  }
+}
