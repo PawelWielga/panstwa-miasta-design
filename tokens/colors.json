@@ -1,0 +1,58 @@
+{
+  "$description": "Semantic colors derived from the current Flutter application.",
+  "$source": {
+    "repository": "PawelWielga/panstwa-miasta",
+    "ref": "c66ff50a709d28535ab88f8aab3de57fdc2db36b",
+    "path": "lib/src/core/theme/app_colors.dart"
+  },
+  "color": {
+    "primary": {
+      "$type": "color",
+      "$value": "#1565C0"
+    },
+    "accent": {
+      "$type": "color",
+      "$value": "#FFC107"
+    },
+    "background": {
+      "$type": "color",
+      "$value": "#F8FAFC"
+    },
+    "surface": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "text-primary": {
+      "$type": "color",
+      "$value": "#0F172A"
+    },
+    "text-secondary": {
+      "$type": "color",
+      "$value": "#64748B"
+    },
+    "border": {
+      "$type": "color",
+      "$value": "#CBD5E1"
+    },
+    "success": {
+      "$type": "color",
+      "$value": "#2E7D32"
+    },
+    "warning": {
+      "$type": "color",
+      "$value": "#FB8C00"
+    },
+    "error": {
+      "$type": "color",
+      "$value": "#D32F2F"
+    },
+    "ranking-silver": {
+      "$type": "color",
+      "$value": "#94A3B8"
+    },
+    "ranking-bronze": {
+      "$type": "color",
+      "$value": "#CD7F32"
+    }
+  }
+}
