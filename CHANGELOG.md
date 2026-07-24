@@ -4,6 +4,13 @@ Wszystkie istotne zmiany w design systemie są dokumentowane w tym pliku.
 
 Format opiera się na Keep a Changelog, a wersje stosują Semantic Versioning.
 
+## [Unreleased]
+
+### Added
+
+- deterministyczny generator plików CSS, JavaScript, TypeScript i Dart,
+- kontrola CI blokująca nieaktualne lub ręcznie zmienione pliki wynikowe.
+
 ## [0.2.0] - 2026-07-25
 
 ### Added
@@ -18,7 +25,7 @@ Format opiera się na Keep a Changelog, a wersje stosują Semantic Versioning.
 
 - minimalna wersja Fluttera została ustawiona na `3.32.0`,
 - minimalna wersja Darta została ustawiona na `3.8.0`,
-- dokumentacja instalacji używa wersjonowanych tagów zamiast branchy roboczych,
+- dokumentacja instalacji używa niezmiennych referencji zamiast branchy roboczych,
 - walidacja sprawdza spójność wersji pakietu i manifestu assetów.
 
 ## [0.1.0] - 2026-07-25
