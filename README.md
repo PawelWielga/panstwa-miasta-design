@@ -21,7 +21,7 @@ assets/branding/
 docs/UI_GUIDELINES.md
 ```
 
-Pliki w `dist/` oraz klasy w `packages/flutter/` są dystrybucyjnymi odpowiednikami tych wartości. Zmiana wspólnego koloru, odstępu, promienia lub brandingu powinna rozpoczynać się w tym repozytorium.
+Pliki w `dist/` oraz podstawowe klasy tokenów w `packages/flutter/` są generowane z wartości w `tokens/`. Nie należy edytować ich ręcznie.
 
 Pierwsza wersja została odtworzona z aplikacji Flutter, głównie z `app_colors.dart`, `app_theme.dart` oraz ekranów używających wspólnych wymiarów. Od wersji `0.2.0` to repozytorium jest nadrzędnym źródłem wspólnych zasad UI.
 
@@ -35,12 +35,12 @@ e28d643a2cc10eb2e47f55f82e8252485674ec2f
 
 ```text
 tokens/                    edytowalne tokeny
-dist/                      gotowy CSS oraz eksporty JS/TS
+dist/                      generowany CSS oraz eksporty JS/TS
 assets/branding/           współdzielone pliki źródłowe SVG
 assets/manifest.json       stabilne nazwy i ścieżki assetów
 packages/flutter/          pakiet Flutter
+scripts/build.mjs          generator plików platformowych
 docs/UI_GUIDELINES.md      zasady projektowania interfejsu
-scripts/                   walidacja spójności
 ```
 
 ## Webowa gra
@@ -114,24 +114,40 @@ Stabilne ścieżki są zapisane w `assets/manifest.json`. Współdzielone pliki 
 
 Pliki zależne od procesu budowania konkretnej platformy, takie jak rozmiary ikon Androida lub dźwięki używane wyłącznie przez aplikację Flutter, mogą pozostać w repozytorium platformy. Manifest wskazuje ich bieżącego właściciela, żeby nie tworzyć niekontrolowanych kopii.
 
-## Zasady zmian
+## Wprowadzanie zmian
 
-1. Nie wpisuj wspólnych kolorów i wymiarów ręcznie w aplikacjach.
-2. Edytuj wartości źródłowe w `tokens/` lub `assets/`.
-3. Aktualizuj równocześnie pliki dystrybucyjne dla webu i Fluttera.
-4. Nie odwołuj aplikacji produkcyjnych do ruchomego brancha `main`. Używaj tagu lub pełnego SHA.
-5. Zmiany niekompatybilne wydawaj jako nową wersję główną SemVer.
-6. Każda zmiana publicznego assetu lub tokenu wymaga wpisu w `CHANGELOG.md`.
+1. Edytuj wartości w `tokens/*.json` lub źródłowe pliki w `assets/`.
+2. Uruchom generator:
 
-## Walidacja
+```bash
+npm run build
+```
+
+3. Sprawdź zmienione pliki dla webu i Fluttera.
+4. Uzupełnij `CHANGELOG.md`, gdy zmienia się publiczny token lub asset.
+5. Uruchom pełną walidację:
 
 ```bash
 npm test
+```
 
+`npm run build:check` nie zapisuje plików. Kończy się błędem, gdy którykolwiek generowany plik jest nieaktualny względem `tokens/*.json`.
+
+## Zasady
+
+1. Nie wpisuj wspólnych kolorów i wymiarów ręcznie w aplikacjach.
+2. Nie edytuj ręcznie plików generowanych w `dist/`, `colors.dart` ani `dimensions.dart`.
+3. Nie odwołuj aplikacji produkcyjnych do ruchomego brancha `main`. Używaj tagu lub pełnego SHA.
+4. Zmiany niekompatybilne wydawaj jako nową wersję główną SemVer.
+5. Każda zmiana publicznego assetu lub tokenu wymaga wpisu w `CHANGELOG.md`.
+
+## Walidacja Fluttera
+
+```bash
 cd packages/flutter
 flutter pub get
 flutter analyze
 flutter test
 ```
 
-GitHub Actions sprawdza tokeny webowe, manifest assetów oraz pakiet Flutter na minimalnej wspieranej i aktualnej stabilnej wersji Fluttera.
+GitHub Actions sprawdza aktualność generowanych plików, tokeny webowe, manifest assetów oraz pakiet Flutter na minimalnej wspieranej i aktualnej stabilnej wersji Fluttera.

@@ -21,7 +21,9 @@
     "./assets/*": "./assets/*"
   },
   "scripts": {
-    "validate": "node scripts/validate.mjs",
+    "build": "node scripts/build.mjs",
+    "build:check": "node scripts/build.mjs --check",
+    "validate": "node scripts/validate.mjs && npm run build:check",
     "test": "npm run validate && npm pack --dry-run"
   },
   "engines": {
