@@ -1,0 +1,27 @@
+{
+  "name": "@pawelwielga/panstwa-miasta-design",
+  "version": "0.1.0",
+  "description": "Shared design tokens for the Panstwa Miasta game.",
+  "private": true,
+  "type": "module",
+  "files": [
+    "dist",
+    "tokens",
+    "assets",
+    "docs",
+    "packages/flutter"
+  ],
+  "exports": {
+    "./tokens.css": "./dist/tokens.css",
+    "./tokens": {
+      "types": "./dist/tokens.d.ts",
+      "default": "./dist/tokens.js"
+    }
+  },
+  "scripts": {
+    "test": "node scripts/validate.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
